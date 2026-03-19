@@ -222,6 +222,13 @@ with open('$PROJECT_DIR/.team/last_config.yaml', 'w') as f:
     f.write('\n'.join(config_lines) + '\n')
 "
 
+# --- Persist yolo state for team-add ---
+if [ -n "$YOLO" ]; then
+    echo "true" > "$PROJECT_DIR/.team/yolo"
+else
+    rm -f "$PROJECT_DIR/.team/yolo"
+fi
+
 # --- Create tmux session with dynamic layout ---
 
 # Create session with first pane

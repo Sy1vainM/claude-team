@@ -247,13 +247,9 @@ if [ -f "$LAST_CONFIG" ]; then
     [ -n "$MODEL" ] && echo "    model: $MODEL" >> "$LAST_CONFIG"
 fi
 
-# --- Check if existing agents use --yolo ---
-if [ -z "$YOLO" ]; then
-    # Check if pane 0 was launched with --yolo
-    pane0_cmd=$(tmux display-message -t "${SESSION}.0" -p '#{pane_start_command}' 2>/dev/null || true)
-    if echo "$pane0_cmd" | grep -q "dangerously-skip-permissions"; then
-        YOLO="--yolo"
-    fi
+# --- Inherit yolo from session ---
+if [ -z "$YOLO" ] && [ -f "$PROJECT_DIR/.team/yolo" ]; then
+    YOLO="--yolo"
 fi
 
 # --- Launch agent ---
