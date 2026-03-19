@@ -53,8 +53,14 @@ team:
 1. Determine the project directory:
    - If user provides a path → use it
    - If no path → use the current working directory
-2. **Recommend `--yolo` mode by default** — ask the user: "Recommended: start with `--yolo` (autonomous mode, agents skip permission prompts). Proceed with `--yolo`?" If user agrees, add `--yolo`. If user declines, start without it.
-3. Build the command: `team-start [flags] <project-dir>`
+2. **Choose team composition** — if user didn't specify `--preset` or `--config`, choose the best preset based on the task context:
+   - Simple/quick task → `minimal` (leader + developer)
+   - Standard development → `default` (leader + planner + developer + reviewer)
+   - Needs research or exploration first → `research` (default + researcher)
+   - Large/complex project needing full pipeline → `full` (all 8 roles)
+   - Briefly explain your choice and confirm with the user before proceeding.
+3. **Recommend `--yolo` mode by default** — ask the user: "Recommended: start with `--yolo` (autonomous mode, agents skip permission prompts). Proceed with `--yolo`?" If user agrees, add `--yolo`. If user declines, start without it.
+4. Build the command: `team-start [flags] <project-dir>`
 4. Wait for the script to complete, then display:
    - Session name and agent list
    - How to attach: `tmux attach -t <session-name>`

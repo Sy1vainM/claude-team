@@ -40,6 +40,8 @@ tmux attach -t team-<dirname>
 
 Talk to Ada (pane 0). Tell her what to build. Watch the team work.
 
+> **Recommended:** Start from within Claude Code — just describe what you want to build and run `/team start`. Claude will pick the right team composition for you.
+
 ## Features
 
 - **Preset teams** — default (4), minimal (2), research (5), or full (8) agents
