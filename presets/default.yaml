@@ -1,0 +1,9 @@
+team:
+  - role: leader
+    name: Ada
+  - role: planner
+    name: Bob
+  - role: developer
+    name: Dan
+  - role: reviewer
+    name: Fox

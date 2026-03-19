@@ -1,0 +1,17 @@
+team:
+  - role: leader
+    name: Ada
+  - role: researcher
+    name: Cat
+  - role: planner
+    name: Bob
+  - role: developer
+    name: Dan
+  - role: developer-fast
+    name: Eve
+  - role: reviewer
+    name: Fox
+  - role: tester
+    name: Gil
+  - role: writer
+    name: Hal

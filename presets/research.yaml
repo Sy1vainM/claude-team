@@ -1,0 +1,11 @@
+team:
+  - role: leader
+    name: Ada
+  - role: researcher
+    name: Cat
+  - role: planner
+    name: Bob
+  - role: developer
+    name: Dan
+  - role: reviewer
+    name: Fox
