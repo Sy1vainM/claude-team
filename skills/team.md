@@ -53,12 +53,12 @@ team:
 1. Determine the project directory:
    - If user provides a path → use it
    - If no path → use the current working directory
-2. **Choose team composition** — if user didn't specify `--preset` or `--config`, choose the best preset based on the task context:
-   - Simple/quick task → `minimal` (leader + developer)
-   - Standard development → `default` (leader + planner + developer + reviewer)
-   - Needs research or exploration first → `research` (default + researcher)
-   - Large/complex project needing full pipeline → `full` (all 8 roles)
-   - Briefly explain your choice and confirm with the user before proceeding.
+2. **Choose team composition** — if user didn't specify `--preset` or `--config`, choose the best starting preset based on the task context. **Start lean** — agents can be added dynamically later via `team-add`, so prefer fewer roles upfront for the planning phase:
+   - Most tasks → `minimal` (leader + developer) — start here, add roles as the plan demands
+   - Tasks needing upfront design → `default` (leader + planner + developer + reviewer)
+   - Tasks needing research/exploration first → `research` (default + researcher)
+   - Only use `full` if the user explicitly asks for it or the task clearly needs all roles from the start
+   - Briefly explain your choice and remind the user that more agents can be added anytime.
 3. **Recommend `--yolo` mode by default** — ask the user: "Recommended: start with `--yolo` (autonomous mode, agents skip permission prompts). Proceed with `--yolo`?" If user agrees, add `--yolo`. If user declines, start without it.
 4. Build the command: `team-start [flags] <project-dir>`
 4. Wait for the script to complete, then display:
